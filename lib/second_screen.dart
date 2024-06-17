@@ -14,9 +14,35 @@ class SecondScreen extends StatelessWidget {
         title: const Text('Second Screen'),
       ),
       body: Center(
-        child: Text(
-          'Count from Second Screen: ${counter.count}',
-          style: const TextStyle(fontSize: 24),
+        child: Column(
+          children: [
+            Text(
+              'Count from Second Screen: ${counter.count}',
+              style: const TextStyle(fontSize: 24),
+            ),
+            //
+            // What are differences between read, watch, of?
+            // .of == watch?
+            // .of can control list, but watch not?
+            //
+            /*
+            
+            Use context.watch for most cases where you need to display provider data and want the widget to rebuild on changes.
+
+            Use context.read when you only need the current value and don't care about future updates (e.g., inside event handlers).
+
+            So read is a better choice?
+
+            */
+            Text(
+              'Read: ${context.read<Counter>().count}',
+              style: const TextStyle(fontSize: 24),
+            ),
+            Text(
+              'Watch: ${context.watch<Counter>().count}',
+              style: const TextStyle(fontSize: 24),
+            ),
+          ],
         ),
       ),
     );
