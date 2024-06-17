@@ -31,7 +31,7 @@ class SecondScreen extends StatelessWidget {
 
             Use context.read when you only need the current value and don't care about future updates (e.g., inside event handlers).
 
-            So read is a better choice?
+            So read is a better choice? How to test this?
 
             */
             Text(
