@@ -14,6 +14,7 @@ class SecondScreen extends StatelessWidget {
       ),
       body: Center(
         child: Text(
+          // Why can't it listen changes?
           'Count from Second Screen: ${counter.count}',
           style: const TextStyle(fontSize: 24),
         ),
