@@ -12,16 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (_) => Counter(),
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        ));
+    return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: ChangeNotifierProvider(
+            create: (context) => Counter(),
+            child: const MyHomePage(title: 'Flutter Demo Home Page')));
   }
 }
 
@@ -57,8 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const SecondScreen()));
+                // Error can not find
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (_) => const SecondScreen()));
+                //
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ChangeNotifierProvider(
+                            create: (_) => Counter(),
+                            child: const SecondScreen())));
               },
               child: const Text('Go to Second Screen'),
             ),

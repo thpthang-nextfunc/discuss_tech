@@ -8,7 +8,6 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<Counter>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Screen'),
